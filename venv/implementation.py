@@ -13,7 +13,9 @@ def makeGIF(input_filename, output_filename):
         for file in f:
             if '.png' in file:
                 files.append(os.path.join(r, file))
-    images = []
 
-    path = 'c:\\projects\\hc2\\'
+    with imageio.get_writer('/path/to/movie.gif', mode='I') as writer:
+        for file in files:
+            image = imageio.imread(file)
+            writer.append_data(image)
 
